@@ -3,7 +3,7 @@
 This folder contains information related to docker.
 
 
-Kubernetes guide
+Docker guide
 =================
 
 ## Contents
