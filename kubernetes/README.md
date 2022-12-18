@@ -15,9 +15,23 @@ Kubernetes guide
 
 ## Prerequisite:
 
+- Copy all the scripts provided in this repository. 
+- Check if you have enough cpu, memory and storage in your machine.
+
 ## Installation:
 
-- If it is a **KAAS** (Kubernetes as a Service) cluster, get access from your team wherein they add your credentials to the clusterrole (managed by rancher usually)and you can then download the kubeconfig file with certificate, key and CA for authentication and clusterrole(rbac) permission for authorization.
+- Do the below commands to set up local Kubernetes cluster:
+
+```
+chmod +x k8s_docker_tools_install.sh
+./k8s_docker_tools_install.sh
+source ~/.bashrc
+
+```
+
+- If it is a `KAAS` (Kubernetes as a Service) cluster, get access from your team wherein they add your credentials to the clusterrole (managed by rancher).
+
+- Download the kubeconfig file with certificate, key and CA for authentication and clusterrole (rbac) permission for authorization.
 
 ### Tip:
 
@@ -58,6 +72,24 @@ users:
 
 ## Setup:
 
+- Paste the contents of `alias.sh` file in `~/.bashrc` file. Do `source ~/.bashrc` .
+
+- Check if bash completion is installed by typing: `type _init_completion`. If it is not installed, do the following:
+
+```
+sudo apt install bash-completion
+source /usr/share/bash-completion/bash_completion
+source ~/.bashrc
+```
+
+- To enable *kubectl* bash completion with alias:
+
+```
+kubectl completion bash | sudo tee /etc/bash_completion.d/ > /dev/null
+echo 'complete -o default -F __start_kubectl ks' >>~/.bashrc
+source ~/.bashrc
+
+```
 ## Tools:
 
 - Below are the list of useful kubectl plugins from krew
@@ -77,6 +109,18 @@ view-cert                       View certificate information stored in secrets
 view-secret                     Decode Kubernetes secrets
 ```
 
-- Most useful tools for kubernetes development are k9s, kubectx and kubens
+- Following will be installed using `k8s_docker_tools_install.sh` script:
+
+```
+docker-ce-cli
+kubectl
+helm
+crictl
+kind or minikube
+k9s
+kubectx
+kubens
+fzf
+```
 
 **Note**: https://www.cloudzero.com/blog/kubernetes-tools
