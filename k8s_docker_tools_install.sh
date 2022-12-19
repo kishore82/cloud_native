@@ -95,7 +95,6 @@ if ! [ -x "$(command -v docker)" ]; then
   sudo apt install -y docker-ce
   sudo usermod -aG docker $USER
   sudo chmod 666 /var/run/docker.sock
-  sudo systemctl status docker
 fi
 
 if ! [ -x "$(command -v crictl)" ]; then
@@ -117,7 +116,9 @@ fi
 if ! [ -x "$(command -v helm)" ]; then
   echo -e "\n--------------------------------------------------------------\n"
   echo -e "\nError: helm is not installed\n"
-  #exit 1
+  curl -Lo helm.tgz "https://get.helm.sh/helm-v3.10.3-linux-amd64.tar.gz"
+  tar -xf helm.tgz
+  sudo install linux-amd64/helm /usr/local/bin/helm
 fi
 
 dialog_box_for_k8s
