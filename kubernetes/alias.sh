@@ -1,5 +1,5 @@
 export KUBECONFIG="/local/euimkks/.kube/config"
-export NAMESPACE=euimkks
+export NAMESPACE=dev
 alias ks='kubectl '
 alias global='cs,no,pv,csr,crd,psp,pc,sc,clusterrole,clusterrolebinding '
 alias main='cm,pvc,po,svc,sa,ds,deploy,sts,cj,job,secrets,role,rolebinding '
@@ -16,7 +16,4 @@ alias delns='delete namespace '
 alias del='delete '
 alias force=' --all --grace-period=0 --force '
 alias ns='--namespace $NAMESPACE '
-alias k9s='/usr/local/bin/k9s'
-alias kubens='/usr/local/bin/kubens'
-alias kubectx='/usr/local/bin/kubectx'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

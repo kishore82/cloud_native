@@ -17,6 +17,7 @@ Kubernetes guide
 
 - Copy all the scripts provided in this repository. 
 - Check if you have enough cpu, memory and storage in your machine.
+- Go, sudo access, git and bash/sh are some of the prerequisites.
 
 ## Installation:
 
@@ -115,6 +116,7 @@ view-secret                     Decode Kubernetes secrets
 docker-ce-cli
 kubectl
 helm
+krew
 crictl
 kind or minikube
 k9s
@@ -123,4 +125,4 @@ kubens
 fzf
 ```
 
-**Note**: https://www.cloudzero.com/blog/kubernetes-tools
+**Note**: Open `favourites.html` file provided in this repository and refer kubernetes category for important links.

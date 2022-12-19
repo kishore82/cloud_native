@@ -125,6 +125,21 @@ dialog_box_for_k8s
 sleep 10
 check_kubeconfig
 
+if ! [ -x "$(command -v git)" ]; then
+  echo -e "\n--------------------------------------------------------------\n"
+  echo -e "\nkrew is not installed. Hence installing\n"
+  set -x; cd "$(mktemp -d)" &&
+  OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+  ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+  KREW="krew-${OS}_${ARCH}" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+  tar zxvf "${KREW}.tar.gz" &&
+  sudo ./"${KREW}" install krew
+else
+  echo -e "\n--------------------------------------------------------------\n"
+  echo -e "\nkrew is not installed. Please install Git first!!!\n"
+fi
+
 if ! [ -x "$(command -v k9s)" ]; then
   echo -e "\n--------------------------------------------------------------\n"
   echo -e "\nk9s is not installed. Hence installing in ${INSTALL_DIR}\n"
