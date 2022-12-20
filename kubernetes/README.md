@@ -86,7 +86,7 @@ source ~/.bashrc
 - To enable *kubectl* bash completion with alias:
 
 ```
-kubectl completion bash | sudo tee /etc/bash_completion.d/ > /dev/null
+kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 echo 'complete -o default -F __start_kubectl ks' >>~/.bashrc
 source ~/.bashrc
 
