@@ -125,7 +125,7 @@ dialog_box_for_k8s
 sleep 10
 check_kubeconfig
 
-if ! [ -x "$(command -v git)" ]; then
+if [ -x "$(command -v git)" ]; then
   echo -e "\n--------------------------------------------------------------\n"
   echo -e "\nkrew is not installed. Hence installing\n"
   set -x; cd "$(mktemp -d)" &&
