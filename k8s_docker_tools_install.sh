@@ -136,7 +136,7 @@ dialog_box_for_k8s
 check_kubeconfig
 
 if [ -x "$(command -v git)" ]; then
-  if test -f ""; then
+  if test -f "$HOME/.krew/bin/kubectl-krew"; then
     echo -e "\n--------------------------------------------------------------\n"
     echo -e "\nError: Krew is already installed\n"
   else
@@ -147,7 +147,7 @@ if [ -x "$(command -v git)" ]; then
     KREW="krew-${OS}_${ARCH}"
     curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz"
     tar zxvf "${KREW}.tar.gz"
-    sudo ./"${KREW}" install krew
+    ./"${KREW}" install krew
   fi
 else
   echo -e "\n--------------------------------------------------------------\n"
