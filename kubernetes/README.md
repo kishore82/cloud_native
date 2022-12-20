@@ -91,6 +91,15 @@ echo 'complete -o default -F __start_kubectl ks' >>~/.bashrc
 source ~/.bashrc
 
 ```
+
+**Note**: Below are the config folders after doing installations of several packages:
+
+```
+.krew/
+.kube/
+.fzf/
+```
+
 ## Tools:
 
 - Below are the list of useful kubectl plugins from krew
