@@ -23,8 +23,8 @@ sudo ./aws/install
 ```
 aws configure (with and without --profile) 
 or
-aws configure import --csv file://path/to/creds.csv
-do aws configure wizard ----> help
+aws configure import --csv file://<path of csv file>
+aws configure wizard ----> help
 
 complete -C aws_completer aws  --> for auto tab completion
 cli_auto_prompt = on-partial ---> append this in .aws/config file for interactive mode.
