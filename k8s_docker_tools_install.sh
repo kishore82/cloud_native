@@ -3,6 +3,63 @@ CERT_DIR=$KUBE_DIR/certificates
 INSTALL_DIR=$HOME/temp-installers
 CURRENT_DIR=$PWD
 
+update_vim_settings(){
+mkdir -p ~/.vim ~/.vim/autoload ~/.vim/backup ~/.vim/colors ~/.vim/plugged
+touch ~/.vimrc
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/colors/molokai.vim --create-dirs https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+
+cat << EOF > ~/.vimrc
+set nocompatible
+
+set cursorline
+
+set shiftwidth=2
+
+set tabstop=2
+
+set expandtab
+
+set nobackup
+
+set scrolloff=10
+
+set nowrap
+
+set incsearch
+
+set ignorecase
+
+set smartcase
+
+set showcmd
+
+set showmode
+
+set showmatch
+
+set hlsearch
+
+set history=1000
+
+set wildmenu
+
+set wildmode=list:longest
+
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+set statusline=
+
+set statusline+=\ %F\ %M\ %Y\ %R
+
+set statusline+=%=
+
+set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
+
+set laststatus=2
+
+EOF
+}
 check_kubeconfig(){
 if test -f "$KUBECONFIG"; 
 then
@@ -81,6 +138,7 @@ esac
 }
 check_if_installed(){
 
+update_vim_settings
 make_or_remove_dir $INSTALL_DIR
 cd $INSTALL_DIR
 # Check required commands are available and executable in $PATH

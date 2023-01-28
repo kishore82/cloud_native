@@ -73,7 +73,7 @@ users:
 
 ## Setup:
 
-- Paste the contents of `alias.sh` file in `~/.bashrc` file. Do `source ~/.bashrc` .
+- Paste the contents of `bash_aliases.sh` file in `~/.bashrc` or `~/.bash_aliases` file. Do `source ~/.bash_aliases` and then `source ~/.bashrc` .
 
 - Check if bash completion is installed by typing: `type _init_completion`. If it is not installed, do the following:
 
@@ -88,6 +88,15 @@ source ~/.bashrc
 ```
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 echo 'complete -o default -F __start_kubectl ks' >>~/.bashrc
+source ~/.bashrc
+
+```
+
+- To enable *helm* bash completion with alias:
+
+```
+helm completion bash | sudo tee /etc/bash_completion.d/helm > /dev/null
+echo 'complete -o default -F __start_helm helm' >>~/.bashrc
 source ~/.bashrc
 
 ```
