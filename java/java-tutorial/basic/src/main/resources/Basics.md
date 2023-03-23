@@ -12,8 +12,6 @@ This folder contains information related to Basics concepts in Java.
     - [Static](#static)
     - [Collections](#collections)
     - [Hashing](#hashing)
-    - [Atomic Operations](#atomic-operations)
-    - [Concurrent Collections](#concurrent-collections)
     - [ACID properties](#acid-properties)
     - [Why String is Immutable or Final in Java](#why-string-is-immutable-or-final-in-java)
     - [Java 7 Features](#java-7-features)
