@@ -98,11 +98,6 @@ Collision strategy in Hashing:
 - `Chaining` using **linked list**
 - `Open addressing` using **(linear and quadratic probing, double hashing)**
 
-**Types of Association:**
-  * `Copy on Write`
-  * `Compare and Swap` (Also used in Atomic Operations)
-  * `Locks` (Reentrantreadwritelock is implementation of lock interface (lock and unlock))
-
 ### ACID properties
 
 In order to maintain consistency in a database, before and after the transaction, certain properties are followed. These are called **ACID properties**

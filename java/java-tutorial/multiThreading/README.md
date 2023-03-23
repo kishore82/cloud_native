@@ -128,6 +128,11 @@ Collections using new approaches to synchronization are available in **Java 5**.
 
 **Concurrent collections** which performs better than using **synchronized** keyword.
 
+**Types of concurrent approaches:**
+  * `Copy on Write`
+  * `Compare and Swap` (Also used in Atomic Operations)
+  * `Locks` (Reentrantreadwritelock is implementation of lock interface (lock and unlock))
+  
 ### Executor Framework
 
 It provides a way a execution of tasks asynchronously in a thread Pool. It helps us to focus on program logic instead of creating tasks, submitting tasks to them, and managing the execution of those tasks
@@ -154,7 +159,7 @@ It is a synchronization construct that allows two threads to exchange objects in
 
 It is a synchronization tool that allows one or more thread to wait until a set of operation being performed in other threads to complete.
 
-**Methods in semaphore :**
+**Methods in Countdown Latch :**
   * `latch.await()` (this will wait till specified number of countdown occurred latch)
   * `latch.countDown()` (value decreased from a specified value to zero. One decrement for when task completes)
 
@@ -162,7 +167,7 @@ It is a synchronization tool that allows one or more thread to wait until a set 
 
 It allows multiple threads to communicate each other by adding or removing elements in a queue. We want to **set size** for the Blocking queue.
 
-**Methods in semaphore :**
+**Methods in Blocking Queue :**
   * `queue.put()` (this will allows out till max capacity reached. After additional put elements will be waited for take method to remove value in queue)
   * `queue.take()` (this will remove elements in a queue. If put() method processing then take() will wait and vice Versa)
 

@@ -113,7 +113,7 @@ It refers to the **degree** to which one class or module depends on other.
 
 ### SOLID Principles:
 
-**Types of Association:**
+**Types of principles:**
 
   * `Single Responsibility`
   * `Open/Closed`
