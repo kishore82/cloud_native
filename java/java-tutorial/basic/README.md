@@ -91,6 +91,27 @@ Static class is an inner static class which is called using Class reference.
 
 Collection frameworks consist of Collection interface (List, Set, Queue), sub interfaces, Map, Iterator and various classes that provides day-to-day data structures.
 
+#### forEach
+
+Used to iterate the elements. It is defined in Iterable and Stream interface. We can pass lambda expression as an argument
+
+```
+List<String> list = new ArrayList<String>();  
+list.add("sample");   
+list.forEach(i -> System.out.println(i));  
+```
+
+#### Iterators
+
+**Types of Iterators:**
+
+  * `Fail-Safe` (handles failure, used in concurrent collections)
+  * `Fail-Fast` (doesn't handles failure and throws exception, used in synchronized collections)
+  
+**Fail fast iterator**: aborts the operation as soon it exposes failures and stops the entire operation. Example: HashMap (throws ConcurrentModificationException)
+
+**Fail Safe iterator**: doesn't abort the operation in case of a failure. Instead, it tries to avoid failures as much as possible. Example: ConcurrentHashMap
+
 ### Hashing:
 
 Collision strategy in Hashing:
