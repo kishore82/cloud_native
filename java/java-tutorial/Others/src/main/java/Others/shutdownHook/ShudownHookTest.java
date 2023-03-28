@@ -7,6 +7,7 @@ public class ShudownHookTest
 {
     public static void main(String[] args)
     {
+        final Thread mainThread = Thread.currentThread();
         Runnable obj = new Runnable()
         {
 
@@ -28,9 +29,11 @@ public class ShudownHookTest
             @Override
             public void run()
             {
+                System.out.println("Ctrl + c is pressed");
                 System.out.println("Cleaning up resources and shutting down executor service");
                 service.shutdown();
             }
         });
+        System.out.println("program ended");
     }
 }

@@ -9,17 +9,19 @@ Multithreading guide
 ## Table of Contents
 - [Definition](#definition)
 - [Concepts](#concepts)
+    - [Process](#process)
     - [Thread](#thread)
     - [Thread Implementation](#thread-implementation)
     - [Synchronization](#synchronization)
+    - [Inter-thread Communication](#inter-thread-communication)
     - [Using Synchronized keyword](#using-synchronized-keyword)
     - [Atomic Operations](#atomic-operations)
-    - [Concurrent Collections](#concurrent-collections)
     - [Executor Framework](#executor-framework)
     - [Semaphore](#semaphore)
     - [Exchanger](#exchanger)
     - [Countdown Latch](#countdown-latch)
     - [Blocking Queue](#blocking-queue)
+    - [Thread Dump](#thread-dump)
 - [References](#references) 
 
 ## Definition:
@@ -30,9 +32,13 @@ Threads can be created by Extending **Thread class** or else by implementing **R
 
 ## Concepts:
 
+### Process
+
+In computing, a process is the **instance of a computer program that is being executed** by one or many threads.
+
 ### Thread
 
-Represents the thread of Execution. It is considered as a single sequential flow of control within a program. Threads can be run concurrently to achieve efficiency. 
+Represents the thread in Execution. It is considered as a single sequential flow of control within a program. Threads can be run concurrently to achieve efficiency. 
  
 **Types of Thread:**
   * `User Thread`
@@ -80,6 +86,22 @@ Callable Task executed asynchronously. It has a single method call which can ret
 
 **Deadlock**: It occurs in java, when two or more threads are blocked waiting for each other to release a resource that they need to continue executing. This leads to situation in which all threads are unable to make progress, results in deadlock. This mostly occurs due to timeouts in lock and nested locks 
 
+**Mutual exclusion (Mutex)**: It is a property of **process synchronization** which states that `no two processes can exist in the critical section at any given point of time` to prevent race conditions and ensure consistency.
+
+### Inter-thread Communication
+
+Inter-thread communication or Co-operation is all about **allowing synchronized threads** to communicate with each other.
+
+Cooperation (Inter-thread communication) is a mechanism in which a **thread is paused running** in its critical section and **another thread is allowed to enter** (or lock) in the same critical section to be executed.
+
+**Implemented by following:**
+  * `wait()`
+  * `notify()`
+  * `notifyAll()`
+  * `Semaphore`
+  * `Blocking Queue`
+  * `Countdown Latch`
+
 ### Using Synchronized keyword
 
 It is a keyword used to control access to shared resource, such as variables, methods, block of operations by multiple threads in a multi-threaded application.
@@ -122,17 +144,6 @@ All the atomic operations either **execute effectively happens all at once** or 
 
 **Note**: Atomic variable are provided by Java such as AtomicInteger, AtomicBoolean etc
 
-### Concurrent Collections
-
-Collections using new approaches to synchronization are available in **Java 5**. 
-
-**Concurrent collections** which performs better than using **synchronized** keyword.
-
-**Types of concurrent approaches:**
-  * `Copy on Write`
-  * `Compare and Swap` (Also used in Atomic Operations)
-  * `Locks` (Reentrantreadwritelock is implementation of lock interface (lock and unlock))
-  
 ### Executor Framework
 
 It provides a way a execution of tasks asynchronously in a thread Pool. It helps us to focus on program logic instead of creating tasks, submitting tasks to them, and managing the execution of those tasks
@@ -170,6 +181,15 @@ It allows multiple threads to communicate each other by adding or removing eleme
 **Methods in Blocking Queue :**
   * `queue.put()` (this will allows out till max capacity reached. After additional put elements will be waited for take method to remove value in queue)
   * `queue.take()` (this will remove elements in a queue. If put() method processing then take() will wait and vice Versa)
+
+### Thread Dump
+
+It is a **snapshot of the state of all the threads** of a Java process. The state of each thread is presented with a **stack trace**, showing the content of a thread's stack.
+
+**Steps to take thread dump of a process :**
+
+  * `jps` - lists java processes running including process id(pid)
+  * `jps <pid>` - list down the state/logs of threads with stackTrace of the process
 
 ## References:
 

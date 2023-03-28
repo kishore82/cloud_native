@@ -10,12 +10,12 @@ This folder contains information related to Basics concepts in Java.
     - [Pass-by-Value](#pass-by-value)
     - [Pass by Reference](#pass-by-reference)
     - [Static](#static)
-    - [Collections](#collections)
-    - [Hashing](#hashing)
     - [ACID properties](#acid-properties)
     - [Why String is Immutable or Final in Java](#why-string-is-immutable-or-final-in-java)
     - [Java 7 Features](#java-7-features)
     - [Java 8 Features](#java-8-features)
+    - [Streams API](#streams-api)
+    - [JVM Model](#jvm-model)
 - [References](#references)
 
 ## Concepts:
@@ -87,38 +87,6 @@ This is a block of code that is executed when a class is first loaded into a JVM
 Static class is an inner static class which is called using Class reference.
 ```
 
-### Collections
-
-Collection frameworks consist of Collection interface (List, Set, Queue), sub interfaces, Map, Iterator and various classes that provides day-to-day data structures.
-
-#### forEach
-
-Used to iterate the elements. It is defined in Iterable and Stream interface. We can pass lambda expression as an argument
-
-```
-List<String> list = new ArrayList<String>();  
-list.add("sample");   
-list.forEach(i -> System.out.println(i));  
-```
-
-#### Iterators
-
-**Types of Iterators:**
-
-  * `Fail-Safe` (handles failure, used in concurrent collections)
-  * `Fail-Fast` (doesn't handles failure and throws exception, used in synchronized collections)
-  
-**Fail fast iterator**: aborts the operation as soon it exposes failures and stops the entire operation. Example: HashMap (throws ConcurrentModificationException)
-
-**Fail Safe iterator**: doesn't abort the operation in case of a failure. Instead, it tries to avoid failures as much as possible. Example: ConcurrentHashMap
-
-### Hashing:
-
-Collision strategy in Hashing:
-
-- `Chaining` using **linked list**
-- `Open addressing` using **(linear and quadratic probing, double hashing)**
-
 ### ACID properties
 
 In order to maintain consistency in a database, before and after the transaction, certain properties are followed. These are called **ACID properties**
@@ -166,6 +134,29 @@ Collectors(Java 8)
 Java Concurrency Improvement (Java 8)
 ```
 
+### Streams API
+
+Introduced in Java 8, the Stream API is used to **process collections of objects**. 
+
+A stream is a sequence of objects supporting **sequential and parallel aggregate** operations and provides various methods which can be **pipelined** to produce the desired result.
+
+### JVM Model
+
+Java Virtual Machine, a **platform-independent model** refers to the abstract machine that provides the runtime environment for **executing Java bytecode**.
+
+**JVM is responsible for:**
+
+  * `interpreting or compiling Java bytecode into machine code`
+  * `managing memory allocation`
+  * `garbage collection`
+  * `enforcing security policies`
+
+**Main components of JVM:**
+
+  * `Class Loader Subsystem` - includes class loader, linker which is responsible for loading Java class files into the JVM's memory
+  * `Runtime Data Area` - includes the Method Area, Heap, Stack, and PC Registers, which are used to store data and execute Java bytecode
+  * `Execution Engine` - includes JIT compiler, interpreter, GC which executes Java bytecode by interpreting or compiling it into machine code.
+
 ## References:
 
   * https://www.javatpoint.com/why-string-is-immutable-or-final-in-java#:~:text=The%20String%20is%20immutable%20in,it%20makes%20the%20String%20immutable.
@@ -173,4 +164,5 @@ Java Concurrency Improvement (Java 8)
   * https://www.baeldung.com/java-atomic-variables#:~:text=The%20most%20commonly%20used%20atomic,which%20can%20be%20atomically%20updated.
   * https://java2blog.com/core-java-tutorial-for-beginners-experienced/#Chapter_1_Java_Basics
   * https://java2blog.com/core-java-tutorial-for-beginners-experienced/#Chapter_10_Java_8
+  * https://www.guru99.com/java-virtual-machine-jvm.html
   
