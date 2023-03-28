@@ -9,6 +9,7 @@ This folder contains information related to Collections concepts in Java.
     - [Hashing](#hashing)
     - [Hash Table](#hash-table)
     - [Concurrent Collections](#concurrent-collections)
+    - [Why heap is used in Priority Queue](#why-heap-is-used-in-priority-queue)
 - [References](#references)
 
 ## Concepts:
@@ -78,6 +79,12 @@ Collections using new approaches to synchronization are available in **Java 5**.
 **Compare and Swap:** Also used in Atomic Operations, allows a thread to check if a **value in memory matches an expected value** and **update it to a new one atomically**, preventing synchronization problems and race conditions. CAS is commonly used in **lock-free** data structures to enable multiple threads to access and modify data simultaneously without causing conflicts or synchronization overhead.
 
 **Locks:** Java 5 introduced Lock interface and its subinterface ReadWriteLock. Its implementation Reentrantlock and Reentrantreadwritelock provides lock and unlock methods.
+
+### Why heap is used in Priority Queue
+
+**Heap** is used in a priority queue because it efficiently maintains the priority queue's requirements, such as easily finding and removing the highest priority element in **O(log n)** time complexity. 
+
+A **regular queue** does not have any inherent priority notion, making it less efficient for priority-based operations in **O(n)** time complexity.
 
 ## References:
 
